@@ -2,7 +2,7 @@ const express = require('express')
 const parser = require('body-parser')
 const methodOverride = require('method-override')
 const cors = require('cors')
-const passport = require('./config/passport')
+const passport = require('./config/passport')()
 const app = express()
 
 //needed for environnental variables in frontend
