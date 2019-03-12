@@ -19,7 +19,7 @@ app.use(passport.initialize())
 //routes
 app.use('/users', userController)
 
-app.set('port', process.envPORT || 4000)
+app.set('port', process.env.PORT || 4000)
 
 app.listen(app.get('port'), () => {
     console.log(`✅ PORT: ${app.get('port')} 🌟`)
