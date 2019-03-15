@@ -5,6 +5,7 @@ const User = require('../models/User')
 
 const decodeToken = require('./auth')
 
+// shows user health gauge
 router.get('/show', (req, res) => {
     const id = decodeToken(req)
     console.log(id)
@@ -12,27 +13,30 @@ router.get('/show', (req, res) => {
     .then(user => {
         if (user !== null){
             //request is authenticated
-            console.log("this is the user's health gauge" + user.healthGauge)
             res.json(user.healthGauge)
         }
     })
 })
 
+// edits user health gauge
 router.put('/edit', (req, res) => {
     console.log(req.body)
     const id = decodeToken(req)
-    User.findByIdAndUpdate(id)
+    User.findByIdAndUpdate(id, {
+        healthGauge: {
+            level: req.body.level, 
+            assessment: req.body.assessment
+        }
+    }, {new: true})
     .then(user => {
-        console.log('user')
-        // user.save(function (err) {
-        //     if (err) return handleError(err)
-        //     console.log('project updated')
-        // })
+        user.save(function (err) {
+            if (err) {
+                console.log(err)
+            }
+            console.log('health gauge edited')
+        })
     })
-    .catch(err => {
-        console.log(err)
-    })
-
+    res.status(200).end()
 })
 
 module.exports = router
