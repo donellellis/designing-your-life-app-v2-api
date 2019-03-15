@@ -10,6 +10,7 @@ require('dotenv').config()
 
 //controllers
 const userController = require('./controllers/users.js')
+const healthController = require('./controllers/health.js')
 
 app.use(parser.json())
 app.use(methodOverride('_method'))
@@ -18,6 +19,8 @@ app.use(passport.initialize())
 
 //routes
 app.use('/users', userController)
+app.use('/health', healthController)
+
 
 app.set('port', process.env.PORT || 4000)
 
