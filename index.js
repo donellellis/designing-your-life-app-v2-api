@@ -9,8 +9,11 @@ const app = express()
 require('dotenv').config()
 
 //controllers
-const userController = require('./controllers/users.js')
-const healthController = require('./controllers/health.js')
+const userController = require('./controllers/users')
+const healthController = require('./controllers/health')
+const workController = require('./controllers/work')
+const loveController = require('./controllers/love')
+const playController = require('./controllers/play')
 
 app.use(parser.json())
 app.use(methodOverride('_method'))
@@ -20,6 +23,9 @@ app.use(passport.initialize())
 //routes
 app.use('/users', userController)
 app.use('/health', healthController)
+app.use('/work', workController)
+app.use('/love', loveController)
+app.use('/play', playController)
 
 
 app.set('port', process.env.PORT || 4000)

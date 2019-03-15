@@ -7,6 +7,18 @@ const UserSchema = new mongoose.Schema({
 	healthGauge: {
 		level: String,
 		assessment: String
+	},
+	workGauge: {
+		level: String,
+		assessment: String
+	},
+	loveGauge: {
+		level: String,
+		assessment: String
+	},
+	playGauge: {
+		level: String,
+		assessment: String
 	}
 });
 

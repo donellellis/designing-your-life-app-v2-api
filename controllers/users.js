@@ -19,6 +19,18 @@ router.post('/signup', (req, res) => {
         healthGauge: {
           level: req.body.healthGauge.level,
           assessment: req.body.healthGauge.assessment
+        },
+        workGauge: {
+          level: req.body.workGauge.level,
+          assessment: req.body.workGauge.assessment
+        },
+        loveGauge: {
+          level: req.body.loveGauge.level,
+          assessment: req.body.loveGauge.assessment
+        },
+        playGauge: {
+          level: req.body.playGauge.level,
+          assessment: req.body.playGauge.assessment
         }
       }
       User.findOne({ email: req.body.email })
