@@ -5,6 +5,12 @@ const cors = require('cors')
 const passport = require('./config/passport')()
 const app = express()
 
+// prevents heroku from sleeping
+let http = require('http')
+setInterval(function() {
+    http.get('https://designing-your-life-api.herokuapp.com')
+}, 300000) // every 5 minutes (300000)
+
 //needed for environnental variables in frontend
 require('dotenv').config()
 
