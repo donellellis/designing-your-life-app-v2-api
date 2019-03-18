@@ -9,7 +9,7 @@ const app = express()
 let http = require('http')
 setInterval(function() {
     http.get('https://designing-your-life-api.herokuapp.com')
-}, 300000) // every 5 minutes (300000)
+}, 600000) // every 10 minutes (600000)
 
 //needed for environnental variables in frontend
 require('dotenv').config()
